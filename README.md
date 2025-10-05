@@ -18,3 +18,5 @@ Notes
 - Free sources only: official sites, their sitemaps, PDFs, Wikipedia pages. No paid search APIs.
 - Robots.txt respected. Concurrency capped. PDFs limited to 15 MB.
 - Client expects API at http://localhost:3001. Change `client/src/api/analyze.ts` if you host elsewhere.
+
+Developed with ChatGPT 5 and Sonnet 4.5
