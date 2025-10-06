@@ -2,10 +2,13 @@ import got from 'got';
 import { robotsTxtAllows } from './robots.js';
 import { JSDOM } from 'jsdom';
 import { Readability } from '@mozilla/readability';
-import pdfParse from 'pdf-parse';
 import PQueue from 'p-queue';
 import path from 'node:path';
 import { URL } from 'node:url';
+import { createRequire } from 'node:module';
+
+const require = createRequire(import.meta.url);
+const pdfParse = require('pdf-parse');
 
 export type Doc = {
   url: string;
