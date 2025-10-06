@@ -17,6 +17,7 @@ export default function MTWBRadarApp() {
   const abortRef = useRef<AbortController | null>(null);
 
   const onProgress = useCallback((ev: ProgressEvent) => {
+    console.log(ev);
     setProgress(p => {
       const line =
         ev.kind === 'step' ? `${ev.company}: ${ev.message}` :
