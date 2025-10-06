@@ -15,7 +15,7 @@ export async function robotsTxtAllows(target: string): Promise<boolean> {
       parser = robotsParser(robotsUrl, txt);
       robotsCache.set(key, parser);
     }
-    return parser.isAllowed(target, 'MTWB-Scraper/1.0');
+    return parser.isAllowed(target, 'MTWB-Scraper/1.0') ?? true;
   } catch {
     return true;
   }

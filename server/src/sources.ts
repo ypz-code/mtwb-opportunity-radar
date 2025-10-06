@@ -1,6 +1,7 @@
 import got from 'got';
 import { URL } from 'node:url';
-import { parse as parseXML } from 'fast-xml-parser';
+import { XMLParser } from 'fast-xml-parser';
+const parser = new XMLParser({ ignoreAttributes: false });
 
 const WIKI_API = 'https://en.wikipedia.org/w/api.php';
 
@@ -54,7 +55,7 @@ async function fromSitemap(origin: string): Promise<string[]> {
   for (const u of urls) {
     try {
       const xml = await got(u, { timeout: { request: 8000 } }).text();
-      const doc = parseXML(xml, { ignoreAttributes: false });
+      const doc = parser.parse(xml);
       const locs: string[] = []
         .concat(doc.urlset?.url ?? [])
         .concat(doc.sitemapindex?.sitemap ?? [])
